@@ -1,0 +1,45 @@
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(54, 0, 0);
+}
+
+div.container {
+    position: absolute;
+    top: 70%;
+    margin-top: -315px;
+    text-align: center;
+    left: 50%;
+    background: #2B85ED;
+    color: white;
+    margin-left: -515px;
+    padding: 30px;
+    border-bottom: 11px solid white;
+    width: 960px;
+    height: 570px;
+}
+
+div.container h1 {
+    font-size: 55px;
+    margin: -10px;
+    border-bottom: 5px solid white;
+    border-top: 5px solid white;
+    font-weight: 100;
+}
+
+div.container h2.small {
+    font-size: 20px;
+}
+
+/* elements css  */
+.tube-hg {
+    height: 50px;
+    width: 140px;
+    background: rgb(255, 102, 0);
+    border: 2px solid white;
+    border-radius: 70px;
+}
+.screen {
+    position: absolute;
+    top: 120px;
+    left: 100px;
+}
