@@ -148,3 +148,40 @@ div.container h2.small {
     font-weight: bold;
 }
 
+.system {
+    width: 570px;
+    left: -80px;
+}
+.physics-instrument {
+    width: 90px;
+    height: 90px;
+    background: rgb(0, 110, 153);
+    border: 2px solid rgb(0, 72, 138);
+}
+.physics-instrument > input.value {
+    border: none;
+    position: absolute;
+    left: 7px;
+    width: 69px;
+    padding: 3px;
+    font-size: 20px;
+    font-family: monospace;
+    font-weight: bold;
+    top: 5px;
+}
+.physics-instrument .text {
+    bottom: 6px;
+    left: 1px;
+    border-top: 1px solid white;
+    width: 89px;
+    padding: 10px 0 0 0;
+    font-weight: bold;
+}
+.physics-instrument.amp {
+    top: 15px;
+    left: 316px;
+}
+.physics-instrument.vol {
+    top: 165px;
+    left: -4px;
+}

@@ -7,4 +7,6 @@ $(document).ready(function () {
         opacity: 1
       , top: "50%"
     }, 1000);
+
+
 });
