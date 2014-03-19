@@ -20,7 +20,9 @@ $(document).ready(function () {
      *
      */
     function updateResult (value) {
+      // function foo (a) { return (2 * (Math.floor(a / 4.9)) + Math.pow(a, 3/2) * 1.1989).toFixed(2); }
     }
+
 
     // change handler for voltmeter input
     $(".vol input[type='number']").on("change", function () }
