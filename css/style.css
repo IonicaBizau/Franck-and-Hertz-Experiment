@@ -185,3 +185,12 @@ div.container h2.small {
     top: 165px;
     left: -4px;
 }
+
+div.cursor {
+  width: 10px;
+  height: 87px;
+  background: rgb(245, 181, 85);
+  top: 214px;
+  left: 160px;
+  cursor: pointer;
+}
