@@ -31,21 +31,21 @@ $(document).ready(function () {
 
             if (x < 5.1) {
                 if (x <= period) {
-                    return 1;
+                    return Math.pow(x, 3/2);
                 } else {
-                    return -1;
+                    return Math.pow(period - 5.1 + x, 3/2);
                 }
             }
 
             return addOrSubstract (x - period);
         }
 
-        return (2 * (Math.floor(value / 4.9)) + addOrSubstract(value) * Math.pow(value, 3/2) * 1.1989).toFixed(2);
+        return (2 * (Math.floor(value / 4.9)) + addOrSubstract(value) * 1.1989).toFixed(2);
     }
 
 
     // change handler for voltmeter input
     $(".vol input[type='number']").on("change", function () {
-        updateResult($(this).val())
+        updateResult(Number($(this).val()));
     });
 });
