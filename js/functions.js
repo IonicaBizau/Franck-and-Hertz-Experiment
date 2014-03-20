@@ -20,7 +20,27 @@ $(document).ready(function () {
      *
      */
     function updateResult (value) {
-      // function foo (a) { return (2 * (Math.floor(a / 4.9)) + Math.pow(a, 3/2) * 1.1989).toFixed(2); }
+        $(".amp input").val(comptuteValue(value));
+    }
+
+    function comptuteValue (value) {
+
+        function addOrSubstract (x) {
+
+            var period = 4.9;
+
+            if (x < 5.1) {
+                if (x <= period) {
+                    return 1;
+                } else {
+                    return -1;
+                }
+            }
+
+            return addOrSubstract (x - period);
+        }
+
+        return (2 * (Math.floor(value / 4.9)) + addOrSubstract(value) * Math.pow(value, 3/2) * 1.1989).toFixed(2);
     }
 
 
