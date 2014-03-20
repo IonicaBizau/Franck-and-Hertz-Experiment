@@ -25,7 +25,7 @@ $(document).ready(function () {
 
 
     // change handler for voltmeter input
-    $(".vol input[type='number']").on("change", function () }
-        updateResult($(this).val()) 
+    $(".vol input[type='number']").on("change", function () {
+        updateResult($(this).val())
     });
 });
