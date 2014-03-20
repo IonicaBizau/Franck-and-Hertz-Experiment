@@ -33,7 +33,7 @@ $(document).ready(function () {
                 if (x <= period) {
                     return Math.pow(x, 3/2);
                 } else {
-                    return Math.pow(period - 5.1 + x, 3/2);
+                    return Math.pow(period + 5.1 - x, 3/2) / 3;
                 }
             }
 
