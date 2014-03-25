@@ -3,6 +3,15 @@ body {
     background: rgb(54, 0, 0);
 }
 
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: moz-none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 div.container {
     position: absolute;
     top: 70%;
@@ -193,4 +202,5 @@ div.cursor {
   top: 214px;
   left: 160px;
   cursor: pointer;
+  border-radius: 0 0 14px 14px;
 }
