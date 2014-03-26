@@ -208,12 +208,12 @@ div.cursor {
 
 div.button {
     background: #2B85ED;
-    padding: 10px 72px 10px 20px;
-    width: 0;
+    padding: 10px 25px 10px 20px;
+    width: 110px;
     text-align: center;
     font-weight: bold;
     position: absolute;
-    bottom: -66px;
+    bottom: -48px;
     left: 0;
     cursor: pointer;
 }
@@ -228,4 +228,14 @@ div.transition {
     -o-transition:      all 300ms linear;
     -ms-transition:     all 300ms linear;
     transition:         all 300ms linear;
+}
+
+.docs {
+    position: absolute;
+    top: 120px;
+    left: 0;
+    display: none;
+    font-size: 20px;
+    text-align: left;
+    padding: 20px;
 }

@@ -66,6 +66,26 @@ $(document).ready(function () {
       , top: "50%"
     }, 1000);
 
+    var screenVisible = true;
+    $("div.button").on("click", function () {
+
+        var $screen = $(".screen")
+          , $docs   = $(".docs")
+          ;
+
+        if (screenVisible) {
+            $screen.stop(true).fadeOut();
+            $docs.stop(true).fadeIn();
+            screenVisible = false;
+            $(this).text("Experiment");
+        } else {
+            $screen.stop(true).fadeIn();
+            $docs.stop(true).fadeOut();
+            screenVisible = true;
+            $(this).text("Teoria lucrării");
+        }
+    });
+
     var max = 226
       , min = 98
       ;
