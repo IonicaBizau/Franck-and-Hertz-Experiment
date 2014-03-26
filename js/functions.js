@@ -126,7 +126,7 @@ $(document).ready(function () {
             return addOrSubstract (x - period);
         }
 
-        return (2 * (Math.floor(value / 4.9)) + addOrSubstract(value) * 1.1989).toFixed(2);
+        return (2 * (Math.floor(value / 4.9 + 0.1)) + addOrSubstract(value) * 1.1989).toFixed(2);
     }
 
 
