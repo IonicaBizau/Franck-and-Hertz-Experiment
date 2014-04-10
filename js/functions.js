@@ -1,3 +1,4 @@
+// simple draggable
 var SimpleDraggable = function (selector, options) {
 
     options.onStart = options.onStart || function () {};
@@ -54,11 +55,43 @@ var SimpleDraggable = function (selector, options) {
     }
 };
 
+// graph
+var SimpleGraph = function (selector, options) {
+
+    if (this.constructor !== SimpleGraph) {
+        throw new Error ("Use new keyword to create a new graph");
+    }
+
+    // get all elements that match the selector
+    var allElms = document.querySelectorAll (selector)
+      , self = this
+      ;
+
+    /**
+     *  Adds a point to graph
+     *
+     */
+    self.addPoint = function (x, y) {
+        for (var i = 0; i < allElms.length; ++i) {
+            var cEl = allElms[i];
+            var newPoint = document.createElement ("div");
+            $(newPoint).css({
+                top: $(cEl).height() - ($(cEl).height() - $(".xaxis", cEl).position().top + Number(y))
+              , left: $(".yaxis").position().left + Number(x)
+            });
+            newPoint.classList.add("point")
+            $(cEl).append(newPoint);
+        }
+    };
+};
+
 /*
  *  ....
  *
  * */
 $(document).ready(function () {
+
+    var Graph = new SimpleGraph (".graph");
 
     // initial animation
     $(".container").css("opacity", "0").animate({
@@ -126,32 +159,41 @@ $(document).ready(function () {
      *
      */
     function updateResult (value) {
-        $(".amp input").val(comptuteValue(value));
+        var x = value
+          , y = comptuteValue (value)
+          ;
+
+        console.log(x.toFixed(2), y);
+        Graph.addPoint (x * 23, y * 16);
+        $(".amp input").val(y);
     }
 
     function comptuteValue (value) {
 
+        var period = 4.9
+          , low = 6
+          ;
+
         function addOrSubstract (x) {
 
-            var period = 4.9;
-
-            if (x < 5.1) {
+            if (x < low) {
                 if (x <= period) {
                     return Math.pow(x, 3/2);
                 } else {
-                    return Math.pow(period + 5.1 - x, 3/2) / 3;
+                    return Math.pow(period + low - x, 3/2) - x * 1.1;
                 }
             }
 
             return addOrSubstract (x - period);
         }
 
-        return (2 * (Math.floor(value / 4.9 + 0.1)) + addOrSubstract(value) * 1.1989).toFixed(2);
+        return (2 * (Math.floor(value / period + 0.1)) + addOrSubstract(value) * 1.1989).toFixed(2);
     }
-
 
     // change handler for voltmeter input
     $(".vol input").on("change", function () {
-        updateResult(Number($(this).val()));
-    });
+        var value = Number($(this).val());
+        document.querySelector(".cursor").style.left = value * 8.6 + min + "px";
+        updateResult(value);
+    }).val("0").change();
 });
