@@ -55,43 +55,30 @@ var SimpleDraggable = function (selector, options) {
     }
 };
 
-// graph
-var SimpleGraph = function (selector, options) {
-
-    if (this.constructor !== SimpleGraph) {
-        throw new Error ("Use new keyword to create a new graph");
-    }
-
-    // get all elements that match the selector
-    var allElms = document.querySelectorAll (selector)
-      , self = this
-      ;
-
-    /**
-     *  Adds a point to graph
-     *
-     */
-    self.addPoint = function (x, y) {
-        for (var i = 0; i < allElms.length; ++i) {
-            var cEl = allElms[i];
-            var newPoint = document.createElement ("div");
-            $(newPoint).css({
-                top: $(cEl).height() - ($(cEl).height() - $(".xaxis", cEl).position().top + Number(y))
-              , left: $(".yaxis").position().left + Number(x)
-            });
-            newPoint.classList.add("point")
-            $(cEl).append(newPoint);
-        }
-    };
-};
-
 /*
  *  ....
  *
  * */
 $(document).ready(function () {
 
-    var Graph = new SimpleGraph (".graph");
+    var Graph = $.jqplot ('graph', [[5, 10]], {
+      title: 'Graficul Franck-Hertz',
+      axesDefaults: {
+        labelRenderer: $.jqplot.CanvasAxisLabelRenderer
+      },
+      axes: {
+        xaxis: {
+          label: "U (V)",
+          pad: 0
+        },
+        yaxis: {
+          label: "I (mA)",
+          pad: 0
+        }
+      }
+    });
+
+    debugger;
 
     // initial animation
     $(".container").css("opacity", "0").animate({
@@ -164,7 +151,8 @@ $(document).ready(function () {
           ;
 
         console.log(x.toFixed(2), y);
-        Graph.addPoint (x * 23, y * 16);
+        // TODO
+        // Graph.addPoint (x * 23, y * 16);
         $(".amp input").val(y);
     }
 

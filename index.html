@@ -5,6 +5,9 @@
         <title>Hello World</title>
         <link rel="stylesheet" href="css/style.css">
         <script src="js/jquery.min.js"></script>
+        <script type="text/javascript" src="./graph/jquery.jqplot.min.js"></script>
+        <script type="text/javascript" src="./graph/plugins/jqplot.canvasTextRenderer.min.js"></script>
+        <script type="text/javascript" src="./graph/plugins/jqplot.canvasAxisLabelRenderer.min.js"></script>
         <script src="js/functions.js"></script>
     </head>
     <body>
@@ -21,7 +24,7 @@
                     <div class="text">V</div>
                 </div>
                 <div class="cursor"></div>
-                <div class="graph">
+                <div id="graph"></div>
                     <div class="xaxis">
                         <div class="arrow">&gt;</div>
                         <div class="text">U (V)</div>
