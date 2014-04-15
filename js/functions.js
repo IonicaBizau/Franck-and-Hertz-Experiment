@@ -61,24 +61,24 @@ var SimpleDraggable = function (selector, options) {
  * */
 $(document).ready(function () {
 
-    var Graph = $.jqplot ('graph', [[5, 10]], {
-      title: 'Graficul Franck-Hertz',
-      axesDefaults: {
-        labelRenderer: $.jqplot.CanvasAxisLabelRenderer
-      },
-      axes: {
-        xaxis: {
-          label: "U (V)",
-          pad: 0
-        },
-        yaxis: {
-          label: "I (mA)",
-          pad: 0
+    var expGraph = $.jqplot ('graph', [[[]]], {
+        title: 'Graficul Franck-Hertz'
+      , axesDefaults: {
+            labelRenderer: $.jqplot.CanvasAxisLabelRenderer
         }
-      }
+      , axes: {
+            xaxis: {
+                label: "U (V)"
+              , min: 0
+              , max: 16.5
+            }
+          , yaxis: {
+                label: "I (mA)"
+              , min: 0
+              , max: 20
+            }
+        }
     });
-
-    debugger;
 
     // initial animation
     $(".container").css("opacity", "0").animate({
@@ -149,10 +149,10 @@ $(document).ready(function () {
         var x = value
           , y = comptuteValue (value)
           ;
+        var seriesObj = expGraph.series[0];
+        seriesObj.data.push([x, y]);
+        expGraph.drawSeries({},0);
 
-        console.log(x.toFixed(2), y);
-        // TODO
-        // Graph.addPoint (x * 23, y * 16);
         $(".amp input").val(y);
     }
 
