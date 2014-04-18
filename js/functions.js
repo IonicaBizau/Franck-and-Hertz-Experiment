@@ -222,6 +222,19 @@ $(document).ready(function () {
     // change handler for voltmeter input
     $(".vol input").on("change", function () {
         var value = Number($(this).val());
+
+        // max value
+        if (value > 15) {
+            $(this).val(15).change();
+            return;
+        }
+
+        // min value
+        if (value < 0 || isNaN(value)) {
+            $(this).val(0).change();
+            return;
+        }
+
         document.querySelector(".cursor").style.left = value * 8.6 + min + "px";
         updateResult(value);
     }).val("0").change();
