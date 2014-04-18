@@ -14,6 +14,21 @@ body {
     user-select: none;
 }
 
+select {
+    padding: 3px 20px;
+    border: none;
+    outline: none;
+    color: white;
+    font-weight: bold;
+    background: #2B85ED;
+}
+
+select.language {
+    position: absolute;
+    bottom: -36px;
+    left: 177px;
+}
+
 a {
     color: white;
 }
