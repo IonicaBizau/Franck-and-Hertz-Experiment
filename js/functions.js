@@ -176,7 +176,7 @@ $(document).ready(function () {
 
         expGraph.drawSeries({},0);
 
-        $(".amp input").val(y);
+        $(".amp input").val(y.toFixed(2));
     }
 
     $(".clear-graph").on("click", function () {
