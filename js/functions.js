@@ -79,6 +79,14 @@ $(document).ready(function () {
         }
     }).change();
 
+    $(".add-points").css({
+        "bottom": "-360px"
+      , "position": "absolute"
+      , "left": "685px"
+      , "width": "352px"
+      , "font-weight": "bold"
+    });
+
     var expGraph = $.jqplot ('graph', [[[]]], {
         axesDefaults: {
             labelRenderer: $.jqplot.CanvasAxisLabelRenderer
@@ -168,13 +176,15 @@ $(document).ready(function () {
           , y = comptuteValue (value)
           ;
 
-        var seriesObj = expGraph.series[0];
-        seriesObj.data.push([x, y]);
-        seriesObj.data.sort (function (a, b) {
-            return a[0] - b[0];
-        });
+        if ($(".add-points input").prop("checked")) {
+            var seriesObj = expGraph.series[0];
+            seriesObj.data.push([x, y]);
+            seriesObj.data.sort (function (a, b) {
+                return a[0] - b[0];
+            });
 
-        expGraph.drawSeries({},0);
+            expGraph.drawSeries({},0);
+        }
 
         $(".amp input").val(y.toFixed(2));
     }
