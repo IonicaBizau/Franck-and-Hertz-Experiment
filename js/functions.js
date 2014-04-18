@@ -70,12 +70,12 @@ $(document).ready(function () {
             xaxis: {
                 label: "U (V)"
               , min: 0
-              , max: 16.5
+              , max: 15
             }
           , yaxis: {
                 label: "I (mA)"
               , min: 0
-              , max: 20
+              , max: 22
             }
         }
     });
@@ -149,6 +149,7 @@ $(document).ready(function () {
         var x = value
           , y = comptuteValue (value)
           ;
+
         var seriesObj = expGraph.series[0];
         seriesObj.data.push([x, y]);
         expGraph.drawSeries({},0);
@@ -162,20 +163,22 @@ $(document).ready(function () {
           , low = 6
           ;
 
-        function addOrSubstract (x) {
-
-            if (x < low) {
-                if (x <= period) {
-                    return Math.pow(x, 3/2);
-                } else {
-                    return Math.pow(period + low - x, 3/2) - x * 1.1;
-                }
+        var y = 0;
+        if (value > period && value % period > 0 && value % period < 0.3) {
+            if (value <= period * 2) {
+                y = -10.88 * value + 66.92;
+            } else {
+                y = comptuteValue (value - period) + 2 * Math.floor(value / period);
             }
-
-            return addOrSubstract (x - period);
+        } else {
+            if (value <= period) {
+                return Math.pow (value, 3/2) * 1.3829202595488537;
+            } else {
+                return comptuteValue (value - period) + 2 * Math.floor(value / period);
+            }
         }
 
-        return (2 * (Math.floor(value / period + 0.1)) + addOrSubstract(value) * 1.1989).toFixed(2);
+        return y;
     }
 
     // change handler for voltmeter input
