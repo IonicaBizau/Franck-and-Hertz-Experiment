@@ -56,7 +56,8 @@ var SimpleDraggable = function (selector, options) {
 };
 
 /*
- *  ....
+ *  Franck & Hertz Experiment
+ *  Licensed under MIT license
  *
  * */
 $(document).ready(function () {
@@ -152,6 +153,10 @@ $(document).ready(function () {
 
         var seriesObj = expGraph.series[0];
         seriesObj.data.push([x, y]);
+        seriesObj.data.sort (function (a, b) {
+            return a[0] - b[0];
+        });
+
         expGraph.drawSeries({},0);
 
         $(".amp input").val(y);
