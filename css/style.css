@@ -217,7 +217,7 @@ div.button {
     text-align: center;
     font-weight: bold;
     position: absolute;
-    bottom: -48px;
+    bottom: -49px;
     left: 0;
     cursor: pointer;
 }
@@ -252,4 +252,16 @@ div#graph {
     position: absolute;
     top: 10px;
     left: 490px;
+}
+
+div.container p.copyright {
+    color: white;
+    bottom: -56px;
+    position: absolute;
+    right: 0;
+}
+
+p.copyright a {
+    color: white;
+    font-weight: bold;
 }
