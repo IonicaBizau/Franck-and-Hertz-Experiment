@@ -4,6 +4,7 @@ body {
     overflow: hidden;
 }
 
+
 * {
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -11,6 +12,10 @@ body {
     -moz-user-select: moz-none;
     -ms-user-select: none;
     user-select: none;
+}
+
+a {
+    color: white;
 }
 
 h1, h2, h3, h4, h5, h6, input[readonly], p {

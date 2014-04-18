@@ -62,9 +62,25 @@ var SimpleDraggable = function (selector, options) {
  * */
 $(document).ready(function () {
 
+    var screenVisible = true;
+
+    // on change
+    $("select.language").on("change", function () {
+        // set the new language
+        $.setLanguage({
+            attribute: "data-lang"
+          , lang: $(this).val()
+        });
+
+        if (!screenVisible) {
+            $(".theory").hide();
+        } else {
+            $(".experiment").hide();
+        }
+    }).change();
+
     var expGraph = $.jqplot ('graph', [[[]]], {
-        title: 'Graficul Franck-Hertz'
-      , axesDefaults: {
+        axesDefaults: {
             labelRenderer: $.jqplot.CanvasAxisLabelRenderer
         }
       , axes: {
@@ -87,7 +103,6 @@ $(document).ready(function () {
       , top: "50%"
     }, 1000);
 
-    var screenVisible = true;
     $("div.button").on("click", function () {
 
         var $screen = $(".screen")
@@ -98,12 +113,14 @@ $(document).ready(function () {
             $screen.stop(true).fadeOut();
             $docs.stop(true).fadeIn();
             screenVisible = false;
-            $(this).text("Experiment");
+            $(".experiment[data-lang='" + $("select.language").val() +"']", this).show();
+            $(".theory", this).hide();
         } else {
             $screen.stop(true).fadeIn();
             $docs.stop(true).fadeOut();
             screenVisible = true;
-            $(this).text("Teoria lucrării");
+            $(".experiment", this).hide();
+            $(".theory[data-lang='" + $("select.language").val() +"']", this).show();
         }
     });
 
