@@ -103,7 +103,7 @@ $(document).ready(function () {
       , top: "50%"
     }, 1000);
 
-    $("div.button").on("click", function () {
+    $("div.button.theory-switch").on("click", function () {
 
         var $screen = $(".screen")
           , $docs   = $(".docs")

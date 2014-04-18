@@ -236,10 +236,13 @@ div.button {
     width: 110px;
     text-align: center;
     font-weight: bold;
+    cursor: pointer;
     position: absolute;
+}
+
+div.button.theory-switch {
     bottom: -49px;
     left: 0;
-    cursor: pointer;
 }
 
 div.button:hover {
