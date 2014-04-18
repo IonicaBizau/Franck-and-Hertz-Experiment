@@ -179,6 +179,12 @@ $(document).ready(function () {
         $(".amp input").val(y);
     }
 
+    $(".clear-graph").on("click", function () {
+        var seriesObj = expGraph.series[0];
+        seriesObj.data = [];
+        expGraph.drawSeries({},0);
+    });
+
     function comptuteValue (value) {
 
         var period = 4.9

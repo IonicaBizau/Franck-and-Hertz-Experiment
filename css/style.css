@@ -233,7 +233,6 @@ div.cursor {
 div.button {
     background: #2B85ED;
     padding: 10px 25px 10px 20px;
-    width: 110px;
     text-align: center;
     font-weight: bold;
     cursor: pointer;
@@ -242,11 +241,25 @@ div.button {
 
 div.button.theory-switch {
     bottom: -49px;
+    width: 110px;
     left: 0;
 }
 
-div.button:hover {
+div.button.clear-graph {
+    bottom: -387px;
+    left: 492px;
+    color: #2B85ED;
+    background: white;
+    width: 125px;
+    height: 16px;
+}
+
+div.button.theory-switch:hover {
     background: #004FAA;
+}
+
+div.button.clear-graph:hover {
+    background: #ecf0f1;
 }
 
 div.transition {
