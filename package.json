@@ -1,6 +1,6 @@
 {
   "name": "franck-and-hertz-experiment-simulation",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Simulate the Franck and Hertz experiment",
   "main": "lib/index.js",
   "scripts": {
