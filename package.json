@@ -1,0 +1,39 @@
+{
+  "name": "franck-and-hertz-experiment-simulation",
+  "version": "1.0.0",
+  "description": "Simulate the Franck and Hertz experiment",
+  "main": "lib/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IonicaBizau/Franck-and-Hertz-Experiment.git"
+  },
+  "author": "Ionică Bizău <bizauionica@gmail.com> (https://ionicabizau.net)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/IonicaBizau/Franck-and-Hertz-Experiment/issues"
+  },
+  "homepage": "https://github.com/IonicaBizau/Franck-and-Hertz-Experiment#readme",
+  "files": [
+    "bin/",
+    "app/",
+    "lib/",
+    "dist/",
+    "src/",
+    "scripts/",
+    "resources/",
+    "menu/",
+    "cli.js",
+    "index.js",
+    "bloggify.js",
+    "bloggify.json",
+    "bloggify/"
+  ],
+  "blah": {
+    "title": "Franck-and-Hertz-Experiment",
+    "ex_img": "http://i.imgur.com/gglOqxg.png",
+    "ex_url": "http://ionicabizau.github.io/Current-voltage-charactersitic/"
+  }
+}
